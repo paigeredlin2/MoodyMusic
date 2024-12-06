@@ -1,0 +1,56 @@
+{% extends 'player/base.html' %}
+{% load static %}
+{% block body %}
+        <div class="messages">
+            {% if messages %}
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+        </div>
+    <section class="homepage">
+        <div class="jumbotron">
+            <div class="text">
+                <h1>Welcome to <span class="moodyTitle">Moody Music</span>!</h1>
+                <hr>
+                <h2>You pick the mood and we pick the music!</h2>
+            </div>
+            <div class="image">
+                <img src="{% static 'player/styling/music-bird-gif.jpg'%}" alt="A girl listening to music">
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-title">
+                    <h3>Lofi</h3>
+                </div>
+                <div class="card-body">
+                    <p>Light electronic jazz and hip-hop music. Many have claimed that Lofi helps relieve symptoms of ADHD and relieve stress. Try it for yourself!</p>
+                    <a href="{% url 'lofi'%}"><button>Let's Listen!</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <h3>Classical</h3>
+                </div>
+                <div class="card-body">
+                    <p>Proven to give a boost your brain and creativity! Classical music is also proven to reduce stress. Perfect for last-minute study cramming!</p>
+                    <a href="{% url 'classical'%}"><button>Let's Listen!</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <h3>Video Game</h3>
+                </div>
+                <div class="card-body">
+                    <p>Need some focus and a little bit of fun? "Video game music doesn’t just help you not lose focus — it can actually help you focus better" -Liz Sepulveda, The Stute. 2024</p>
+                    <a href="{% url 'videogame'%}"><button>Let's Listen!</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

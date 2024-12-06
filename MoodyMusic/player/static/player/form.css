@@ -1,0 +1,43 @@
+#disclaimer{
+    background-color: #453830;
+    color: #97937f;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+#request-request{
+    font-family: Style Script;
+    color: #d3dce6;
+    text-align: center;
+}
+#sub-request{
+    color: #d3dce6;
+    text-align: center;
+}
+#request-form{
+    text-align: center;
+    background-color: #222327;
+    padding: 2rem;
+    border: 5px solid #d3dce6;
+    border-radius: 10px;
+}
+#request-form label{
+    text-align: left;
+    display: block;
+    color: #d3dce6;
+    width: 60%;
+    margin: .5rem auto;
+}
+#request-form input{
+    width: 60%;
+    margin: 0 auto;
+}
+#request-form button{
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    background-color: #453830;
+    color: #97937f;
+    border: 2px solid #d3dce6;
+    padding: 1rem;
+    border-radius: 10px;
+}

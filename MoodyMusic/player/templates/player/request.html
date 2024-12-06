@@ -1,0 +1,23 @@
+{% extends 'player/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'player/form.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<h1 id="request-request">Send me a request!</h1>
+<h3 id="sub-request">Here you can send me a song request, or a general remarks comment</h3>
+<h4 id="disclaimer">A quick note about the media of this project. I do not own any music, images, or gifs in
+    this project. This project is purely educational, and I do not make any profit from this web application.
+    I believe that my project falls under the terms of the Fair Use Policy. If any creator has an issue with me
+    using their media, please send me a message through the below form so I can remove or credit their material.
+    Thanks for stopping by!
+</h4>
+<form method="POST" id="request-form">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Send!</button>
+</form>
+{% endblock %}

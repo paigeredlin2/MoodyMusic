@@ -1,0 +1,103 @@
+{% load static %}
+.extra-content{
+  display: none;
+}
+.make-flex{
+  background-color: #453830;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.5rem;
+  border: 5px solid #d3dce6;
+  border-radius: 10px;
+}
+#song-image{
+  max-height: 320px;
+  border-radius: 10px;
+  border: 5px solid #222327;
+  overflow: hidden;
+  max-width: 100%;
+}
+#song-name{
+  color: #d3dce6;
+}
+#artist-name{
+  color: #d3dce6;
+  font-family: Style Script;
+}
+.control-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
+}
+#prev-song img{
+  height: 2rem;
+}
+.amplitude-play-pause{
+  height: 2rem;
+  width: 2rem;
+}
+/* the following two classes target the same element the amplitude
+library handles the class switching based on current pause/play status */
+.amplitude-playing {
+  background-image: url("../../static/player/styling/pause2-svg.svg");
+  background-size: cover;
+}
+.amplitude-paused{
+  background-image: url("../../static/player/styling/play-svg.svg");
+  background-size: cover;
+}
+#next-song img{
+  height: 2rem;
+}
+.song-data-container{
+  width: 50%;
+  margin: 0 auto;
+}
+.progress-bar{
+  width: 100%;
+  margin: .5rem auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 12px;
+}
+/* These are needed to change the color of the progress bar */
+progress::-moz-progress-bar { background: #345f58; }
+progress::-webkit-progress-value { background: #345f58; }
+
+@media all and (min-width: 1200px){
+  #prev-song img, #next-song img{
+    height: 2.3rem;
+  }
+  .amplitude-play-pause{
+    height: 2.3rem;
+    width: 2.3rem;
+  }
+
+  .make-flex{
+    display: flex;
+  }
+  #song-player{
+    flex: 1;
+  }
+  .extra-content{
+    flex:1;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .extra-content h2{
+    color: #d3dce6;
+    background-color: #345f58;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  .extra-content img{
+    max-height: 320px;
+    border-radius: 10px;
+    border: 5px solid #222327;
+    overflow: hidden;
+    max-width: 100%;
+  }
+}

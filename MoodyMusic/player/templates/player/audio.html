@@ -1,0 +1,73 @@
+{% extends 'player/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'player/audio.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="container make-flex">
+        <div id="song-player">
+            <div class="song-image">
+                <img data-amplitude-song-info="cover_art_url" id="song-image" />
+            </div>
+        <div class="song-data-container">
+
+          <div class="meta-container">
+              <h2 id="song-name" data-amplitude-song-info="name"></h2>
+              <h3 id="artist-name" data-amplitude-song-info="artist"></h3>
+          </div>
+
+          <div class="control-container">
+              <div class="amplitude-prev" id="prev-song">
+                  <img src="{% static 'player/styling/prev-svg.svg' %}" alt="Previous Song?">
+              </div>
+              <div class="amplitude-play-pause" id="play-pause">
+
+              </div>
+              <div class="amplitude-next" id="next-song">
+                  <img src="{% static 'player/styling/next-svg.svg' %}" alt="Next Song?">
+              </div>
+            </div>
+
+            <progress class="amplitude-song-played-progress progress-bar " id="song-played-progress"></progress>
+
+
+      </div>
+    </div>
+        <div class="extra-content">
+            <h2 class="water-reminder">Hit play!<br>And don't forget to drink some water!</h2>
+            <img src="{% static 'player/styling/study-gif.jpg'%}">
+        </div>
+    </div>
+
+<!--JavaScript is in this file so that the context from the view is closer-->
+<!--Goes after all html elements and their classes/ids are defined-->
+    <script>
+        // PlayPauseManager = () =>{
+        //     let element = document.getElementById("play-pause");
+        //     element.classList.add()
+        // }
+        const songList = JSON.parse('{{song_list|escapejs}}')
+        console.log(songList)
+        // Mapping each song in the song list into playlist
+        const playlist = songList.map((song)=>{
+            console.log(song)
+            return{
+                name: song.song_name,
+                artist: song.artist,
+                url: song.audio,
+                cover_art_url: song.cover_image,
+            }
+        })
+
+    // Amplitude requires this initialization to begin
+    Amplitude.init({
+        songs: playlist,
+    })
+        //quick debug for correct initialization
+        console.log(Amplitude.songs)
+    </script>
+
+
+{% endblock%}
